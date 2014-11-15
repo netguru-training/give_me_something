@@ -8,7 +8,7 @@
     %th
     %th
 
-  - list.gifts.each do |gift|
+  - gifts.each do |gift|
     %tr
       %td= gift.name      
       %td= button_to 'Show', gift_path(gift), :class => "btn btn-primary", :method => :get

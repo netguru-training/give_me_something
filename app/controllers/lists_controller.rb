@@ -2,6 +2,7 @@ class ListsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 expose(:list)
 expose(:lists)
+expose(:gifts) { list.gifts.order("name ASC") }
 
   def index
   end
