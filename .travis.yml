@@ -7,4 +7,4 @@ before_script:
   - bundle exec rake db:migrate --trace
 addons:
   code_climate:
-    repo_token: d791883271ea0b1faeae2961408232ea89e78012fbc606d9efe91fb245fff1a4
+    repo_token: 1b6ccf9bba3ff127a8b8c5e5c4c59776e521b78fb5f4309088a923da70de6979
