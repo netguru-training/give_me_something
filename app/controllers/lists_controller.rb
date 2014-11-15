@@ -20,7 +20,7 @@ expose(:lists)
     #raise
 
     list = Lists::AddGiftsFromForm.new(list_params, current_user).call
-    if list
+    if list.present?
       redirect_to list_path(list), notice: 'List was successfully created.'
     else
       render action: 'new'

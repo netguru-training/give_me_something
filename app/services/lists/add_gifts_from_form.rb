@@ -9,6 +9,13 @@ module Lists
     end
 
     def call
+      create_list
+      rescue ActiveRecord::RecordInvalid => e
+        nil
+    end
+
+    private
+    def create_list
       ActiveRecord::Base.transaction do
         list = List.create!(name: list_params["name"], user: user)
         list_params["gifts_attributes"].each do |k,v|
@@ -17,6 +24,5 @@ module Lists
         return list
       end
     end
-
   end
 end
