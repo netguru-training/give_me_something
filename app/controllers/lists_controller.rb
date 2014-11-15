@@ -25,7 +25,7 @@ expose(:gifts) { list.gifts.order("name ASC") }
     if list.present?
       redirect_to list_path(list), notice: 'List was successfully created.'
     else
-      render action: 'new'
+      render action: 'new', flash: { error: 'Invalid data provided. List not created.' }
     end
   end
 

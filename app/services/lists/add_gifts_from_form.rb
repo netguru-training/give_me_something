@@ -21,7 +21,7 @@ module Lists
         list_params["gifts_attributes"].each do |k,v|
           Gift.create!(name: v["name"], description: v["description"], list: list)
         end
-        return list
+        list
       end
     end
   end
