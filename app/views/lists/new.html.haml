@@ -1,2 +1,6 @@
-%h1 Lists#new
-%p Find me in app/views/lists/new.html.haml
+%h1 New list
+
+= simple_form_for list  do |f|
+  = f.input :name
+  = f.input :gifts_list, as: :text
+  = f.submit 'Create'

@@ -1,4 +1,5 @@
 class List < ActiveRecord::Base
+  attr_reader :gifts_list
   belongs_to :user
   has_many :gifts
 
