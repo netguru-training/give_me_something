@@ -8,8 +8,20 @@
 # Environment variables (ENV['...']) can be set in the file .env file.
 
 User.delete_all
+List.delete_all
+Gift.delete_all
 
-user1 = User.create! :name => 'Kalinda', :email => 'kalinda@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-user2 = User.create! :name => 'Anna', :email => 'anna@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-user3 = User.create! :name => 'Kate', :email => 'kate@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-user4 = User.create! :name => 'Beth', :email => 'beth@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+
+5.times do
+  pass = "password"
+  User.create! :name => Faker::Name.name, :email => Faker::Internet.email, :password => pass, :password_confirmation => pass
+end
+
+User.all.each do |user|
+ 3.times {user.lists.create(:name => Faker::Lorem.word)}
+end
+
+List.all.each do |list|
+  3.times {list.gifts.create(:name => Faker::Lorem.word)}
+end
+

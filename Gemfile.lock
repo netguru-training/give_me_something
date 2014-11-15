@@ -84,8 +84,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    faker (1.4.3)
-      i18n (~> 0.5)
+    ffaker (1.25.0)
     ffi (1.9.6)
     foreman (0.75.0)
       dotenv (~> 0.11.1)
@@ -234,6 +233,8 @@ GEM
       json
       json
     sexp_processor (4.4.4)
+    shortener (0.3.1)
+      rails (>= 3.0.7)
     shoulda-matchers (2.6.2)
       activesupport (>= 3.0.0)
     simple_form (3.0.2)
@@ -283,7 +284,7 @@ DEPENDENCIES
   devise
   draper
   factory_girl_rails
-  faker
+  ffaker
   foreman
   guard-bundler
   guard-rails
@@ -308,6 +309,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   sendgrid
+  shortener
   shoulda-matchers
   simple_form
   spring
