@@ -1,2 +1,20 @@
 %h1 Lists#index
-%p Find me in app/views/lists/index.html.haml
+%br
+%table.table.table-hover
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - lists.each do |list|
+    %tr
+      %td= list.name      
+      %td= link_to 'Show', list
+      %td= link_to 'Edit', edit_user_list_path(list)
+      %td= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+-if user_signed_in?
+  = link_to 'New List', new_user_list_path
+%br
