@@ -13,4 +13,4 @@
       %td= gift.name      
       %td= button_to 'Show', gift_path(gift), :class => "btn btn-primary", :method => :get
       %td= button_to 'Edit', edit_gift_path(gift), :class => "btn btn-primary", :method => :get
-      %td= button_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary"
+      %td= button_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"

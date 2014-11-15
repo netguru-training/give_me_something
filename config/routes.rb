@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users
-  resources :lists
+
+  get 'lists/:slug', to: 'lists#show'
+
+  resources :lists 
   resources :gifts
-  get 'lists/:id' => "shortener/shortened_urls#show"
 
 
 end

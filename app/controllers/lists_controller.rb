@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
-expose(:list)
+expose(:list, finder: :find_by_slug, finder_parameter: :slug)
 expose(:lists)
 
   def index

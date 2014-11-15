@@ -5,4 +5,11 @@ class List < ActiveRecord::Base
 
   validates :name, presence: true
   validates :user_id, presence: true
+
+  after_initialize :ensure_slug
+
+  def ensure_slug
+    self.slug ||= SecureRandom.hex(5)
+  end
+  
 end
