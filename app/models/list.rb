@@ -3,6 +3,9 @@ class List < ActiveRecord::Base
   belongs_to :user
   has_many :gifts
 
+  accepts_nested_attributes_for :gifts, :reject_if => :all_blank, :allow_destroy => true
+
+
   validates :name, presence: true
   validates :user_id, presence: true
 
