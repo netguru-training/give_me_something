@@ -10,4 +10,6 @@ describe User do
     expect(@user.email).to match 'user@example.com'
   end
 
+  it {should have_many(:lists)}
+
 end
