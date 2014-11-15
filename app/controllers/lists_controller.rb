@@ -22,10 +22,10 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
     #raise
 
     list = Lists::AddGiftsFromForm.new(list_params, current_user).call
-    if list
+    if list.present?
       redirect_to list_path(list), notice: 'List was successfully created.'
     else
-      render action: 'new'
+      render action: 'new', flash: { error: 'Invalid data provided. List not created.' }
     end
   end
 
