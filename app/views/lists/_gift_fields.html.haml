@@ -1,0 +1,4 @@
+.nested-fields
+  = f.input :name, placeholder: 'Name', label: false, input_html: { class: 'form-control' }
+  = f.input :description, placeholder: 'Description', label: false, input_html: { class: 'form-control' }
+  = link_to_remove_association "remove gift", f

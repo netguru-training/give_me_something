@@ -16,10 +16,12 @@ expose(:lists)
   end
 
   def create
+    #puts list_params
+    #raise
 
-    if list.save
-      Lists::AddGiftsFromText.new(list, list_gifts).call
-      redirect_to category, notice: 'List was successfully created.'
+    list = Lists::AddGiftsFromForm.new(list_params, current_user).call
+    if list
+      redirect_to list_path(list), notice: 'List was successfully created.'
     else
       render action: 'new'
     end
@@ -27,7 +29,8 @@ expose(:lists)
 
   private
 
-  def list_gifts
-    list(params[:list][:gifts_])
+  def list_params
+    params.require(:list).permit(:name, gifts_attributes: [:name, :description])
   end
+
 end

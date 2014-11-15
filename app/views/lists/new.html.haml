@@ -3,6 +3,12 @@
 = simple_form_for list, html: { class: 'form' } do |f|
   .form-group
     = f.input :name, placeholder: 'Name', label: false, input_html: { class: 'form-control' }
-  .form-group
-    = f.input :gifts_list, as: :text, placeholder: 'Gifts (separated by new lines)', label: false, input_html: { class: 'form-control', rows: 10 }
+    %h3 Gifts
+    #gifts
+      = f.simple_fields_for :gifts do |gift|
+        = render 'gift_fields', f: gift
+      .links
+        = link_to_add_association 'add gift', f, :gifts
+  -#.form-group
+  -#  = f.input :gifts_list, as: :text, placeholder: 'Gifts (separated by new lines)', label: false, input_html: { class: 'form-control', rows: 10 }
   = f.submit 'Create', class: 'btn btn-primary'
