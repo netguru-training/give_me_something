@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get 'lists/new', to: 'lists#new'
   get 'lists/:slug', to: 'lists#show'
 
   resources :lists 

@@ -14,5 +14,9 @@ class List < ActiveRecord::Base
   def ensure_slug
     self.slug ||= SecureRandom.hex(5)
   end
+
+  def to_param
+    slug
+  end
   
 end

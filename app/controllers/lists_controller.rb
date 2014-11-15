@@ -3,7 +3,7 @@ before_action :authenticate_user!, except: [:index, :show]
 expose(:list, finder: :find_by_slug, finder_parameter: :slug)
 
 expose(:lists)
-expose(:gifts) { list.gifts.order("name ASC") }
+expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC")) }
 
   def index
   end
