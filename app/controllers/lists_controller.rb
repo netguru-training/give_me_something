@@ -16,7 +16,14 @@ expose(:lists)
   end
 
   def create
+    params = project_params
+    params[:user] = current_user
+    List.create!(params)
+  end
 
+  private
+  def project_params
+    params.require(:list).permit(:name, gifts_attributes: [:name, :description])
   end
 
 end
