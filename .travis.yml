@@ -5,3 +5,6 @@ before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database give_me_something_test;' -U postgres
   - bundle exec rake db:migrate --trace
+addons:
+  code_climate:
+    repo_token: d791883271ea0b1faeae2961408232ea89e78012fbc606d9efe91fb245fff1a4

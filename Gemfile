@@ -34,6 +34,7 @@ group :development do
   gem 'rb-inotify', :require=>false
 end
 group :development, :test do
+  gem 'codeclimate-test-reporter', require: nil
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'pry-rails'
