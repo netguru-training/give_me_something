@@ -1,3 +1,10 @@
 language: ruby
 rvm:
   - 2.1.2
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database give_me_something_test;' -U postgres
+  - bundle exec rake db:migrate --trace
+addons:
+  code_climate:
+    repo_token: 1b6ccf9bba3ff127a8b8c5e5c4c59776e521b78fb5f4309088a923da70de6979

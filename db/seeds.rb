@@ -11,6 +11,8 @@ User.delete_all
 List.delete_all
 Gift.delete_all
 
+User.create!(:name => "Testuser", :email => "testuser@test.com", :password => "password", :password_confirmation => "password")
+
 
 5.times do
   pass = "password"

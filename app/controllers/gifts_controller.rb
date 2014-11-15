@@ -11,4 +11,11 @@ class GiftsController < ApplicationController
 
   def show
   end
+
+  private
+
+  def gift_params
+    params.require(:gift).permit(:name, :description)
+  end
+
 end
