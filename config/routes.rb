@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :lists
   resources :gifts
+  get 'lists/:id' => "shortener/shortened_urls#show"
+
 
 end

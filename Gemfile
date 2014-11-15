@@ -17,6 +17,8 @@ gem 'haml-rails'
 gem 'pg'
 gem 'sendgrid'
 gem 'simple_form'
+gem 'shortener'
+
 
 group :development do
   gem 'better_errors'

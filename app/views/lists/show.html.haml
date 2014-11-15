@@ -11,6 +11,6 @@
   - list.gifts.each do |gift|
     %tr
       %td= gift.name      
-      %td= button_to 'Show', gift
-      %td= button_to 'Edit', edit_gift_path(gift)
-      %td= button_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }
+      %td= button_to 'Show', gift_path(gift), :class => "btn btn-primary", :method => :get
+      %td= button_to 'Edit', edit_gift_path(gift), :class => "btn btn-primary", :method => :get
+      %td= button_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary"
