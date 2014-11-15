@@ -1,2 +1,16 @@
-%h1 Lists#show
-%p Find me in app/views/lists/show.html.haml
+%h1 #{list.name}
+%br
+
+%table.table.table-hover
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - list.gifts.each do |gift|
+    %tr
+      %td= gift.name      
+      %td= button_to 'Show', gift
+      %td= button_to 'Edit', edit_gift_path(gift)
+      %td= button_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }
