@@ -11,11 +11,11 @@
 
   - current_user.lists.each do |list|
     %tr
-      %td= list.name      
+      %td= link_to "#{list.name}", list_path(list.slug)      
       %td
         .btn-group{:role => "group"}
 
-          = link_to 'Show', list_path(list.slug), :class => "btn btn-default", :method => :get
+          
           = link_to 'Edit', edit_list_path(list), :class => "btn btn-primary", :method => :get
           = link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
 
@@ -23,5 +23,5 @@
 
 %br
 -if user_signed_in?
-  = link_to 'New List', new_list_path
+  = link_to 'New List', new_list_path, :class => "btn btn-primary btn-lg"
 %br
