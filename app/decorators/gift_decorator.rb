@@ -30,10 +30,10 @@ class GiftDecorator < Draper::Decorator
   end
 
   def short_description
-    if description.size<50
-      return description
+    if description.size < 50
+      description
     else
-      truncate(description, length: 49)
+      "#{description.truncate(49)}"
     end
   end
   
