@@ -1,12 +1,12 @@
 class List < ActiveRecord::Base
   attr_reader :gifts_list
   belongs_to :user
-  has_many :gifts
+  has_many :gifts, dependent: :destroy
 
   accepts_nested_attributes_for :gifts, :reject_if => :all_blank, :allow_destroy => true
 
 
-  validates :name, presence: true, length: { minimum: 8 }
+  validates :name, presence: true
   validates :user_id, presence: true
 
   after_initialize :ensure_slug

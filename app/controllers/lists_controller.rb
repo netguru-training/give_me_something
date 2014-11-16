@@ -9,22 +9,45 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
   end
 
   def show
+    self.list = List.find_by_slug(params.require(:slug))
   end
 
   def edit
+    self.list = List.find_by_slug(params.require(:slug))
   end
 
   def new
+    self.list.gifts << Gift.new
+  end
+
+  def update
+    self.list = List.find_by_slug(params.require(:slug))
+    if list.update create_list_params
+      redirect_to list_path(list), notice: 'List was successfully updated.'
+    else
+      render action: :edit
+    end
   end
 
   def create
     list.assign_attributes create_list_params
+    list.user = current_user
     list.save
     if list.persisted?
       redirect_to list_path(list), notice: 'List was successfully created.'
     else
       render action: :new
     end
+  end
+
+  def destroy
+    self.list = List.find_by_slug(params.require(:slug))
+    if list && list.destroy
+      redirect_to lists_path, notice: 'List was successfully destroyed.'
+    else
+      redirect_to lists_path, notice: "List wasn't destroyed."
+    end
+
   end
 
   private
