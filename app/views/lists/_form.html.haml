@@ -1,10 +1,10 @@
 = simple_form_for list, html: { class: 'form' } do |f|
   .form-group
     = f.input :name, placeholder: 'Name', label: false, input_html: { class: 'form-control' }
+  .form-group
     %h3 Gifts
-    %ul.list-group#gifts
-      = f.simple_fields_for :gifts do |gift|
-        = render 'gift_fields', f: gift
-      .links
-        = link_to_add_association '', f, :gifts, class: 'glyphicon glyphicon-plus'
+    = f.simple_fields_for :gifts do |gift|
+      = render 'gift_fields', f: gift
+    .links
+      = link_to_add_association '', f, :gifts, class: 'glyphicon glyphicon-plus'
   = f.submit 'Save', class: 'btn btn-primary'

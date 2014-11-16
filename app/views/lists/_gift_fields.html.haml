@@ -1,4 +1,6 @@
-%li.list-group-item.nested-fields
-  = f.input :name, placeholder: 'Name', label: false, input_html: { class: 'form-control' }
-  = f.input :description, placeholder: 'Description', label: false, input_html: { class: 'form-control' }
-  = link_to_remove_association "", f, class: 'glyphicon glyphicon-minus'
+.row.nested-fields
+  .col-xs-1
+    = link_to_remove_association "", f, class: 'glyphicon glyphicon-remove'
+  .col-xs-11
+    = f.input :name, placeholder: 'Name', label: false, input_html: { class: 'form-control' }
+    = f.input :description, placeholder: 'Description', label: false, input_html: { class: 'form-control' }
