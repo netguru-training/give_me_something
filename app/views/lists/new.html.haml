@@ -1,12 +1,3 @@
 %h1 New list
 
-= simple_form_for list, html: { class: 'form' } do |f|
-  .form-group
-    = f.input :name, placeholder: 'Name', label: false, input_html: { class: 'form-control' }
-    %h3 Gifts
-    #gifts
-      = f.simple_fields_for :gifts do |gift|
-        = render 'gift_fields', f: gift
-      .links
-        = link_to_add_association 'add gift', f, :gifts
-  = f.submit 'Create', class: 'btn btn-primary'
+= render 'form'

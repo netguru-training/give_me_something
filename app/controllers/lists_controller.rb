@@ -15,7 +15,6 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
   end
 
   def new
-
   end
 
   def create
