@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-before_action :authenticate_user!, except: [:index, :show]
+before_action :authenticate_user!, except: [:show]
 expose(:list, finder: :find_by_slug, finder_parameter: :slug, params: :list_params)
 
 expose(:lists)
