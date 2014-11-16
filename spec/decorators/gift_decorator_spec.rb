@@ -14,4 +14,19 @@ describe GiftDecorator do
       expect(decorator.css_available_class).to eq 'warning'
     end
   end
+
+  describe "returns short description" do
+    context "descrption is longer than 50" do
+      let(:gift) { build(:gift, description:'123456789012345678901234567890123456789012345678901234567890') }
+      it "truncates" do
+        expect(decorator.short_description).to eq "1234567890123456789012345678901234567890123456..."
+      end
+    end
+    context "descrption is shorter than 50" do
+      let(:gift) { build(:gift, description:'1234567890') }
+      it "truncates" do
+        expect(decorator.short_description).to eq "1234567890"
+      end
+    end
+  end
 end
