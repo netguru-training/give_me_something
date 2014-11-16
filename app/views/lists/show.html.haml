@@ -22,13 +22,13 @@
       %td
         = gift.description
       %td
-        %a{ href: gift.allegro_url, target: '_blank', title: 'Search in allegro' }
+        %a.gift-search-icon{ href: gift.allegro_url, target: '_blank', title: 'Search in allegro' }
           =image_tag('allegro.ico')
-        %a{ href: gift.ebay_url, target: '_blank', title: 'Search in ebay' }
+        %a.gift-search-icon{ href: gift.ebay_url, target: '_blank', title: 'Search in ebay' }
           =image_tag 'ebay.ico'
-        %a{ href: gift.amazon_url, target: '_blank', title: 'Search in amazon' }
+        %a.gift-search-icon{ href: gift.amazon_url, target: '_blank', title: 'Search in amazon' }
           =image_tag 'amazon.gif'
-        %a{ href: gift.google_url, target: '_blank', title: 'Search in google' }
+        %a.gift-search-icon{ href: gift.google_url, target: '_blank', title: 'Search in google' }
           =image_tag 'google.png'
       %td
         .btn-group{:role => "group"}
