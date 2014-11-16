@@ -4,19 +4,20 @@
 %table.table.table-hover
   %tr
     %th Name
-    %th
-    %th
-    %th
+    %th Actions
+    
 
   - gifts.each do |gift|
-    %tr
+    %tr{class: gift.css_available_class}
       %td= gift.name        
-      %td= button_to 'Show', gift_path(gift), :class => "btn btn-primary", :method => :get
-      - if gift.listed_by?(current_user)   
-        %td= button_to 'Edit', edit_gift_path(gift), :class => "btn btn-primary", :method => :get
-        %td= button_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
-      - elsif gift.can_be_reserved_by?(current_user)
-        %td= button_to "Buy", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-primary"
-      - elsif gift.reserved_by?(current_user)
-        %td= button_to "Resign", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-danger"
+      %td
+        .btn-group{:role => "group"}
+          = link_to 'Show', gift_path(gift), :method => :get, :class => "btn btn-default"
+          - if gift.listed_by?(current_user)   
+            = link_to 'Edit', edit_gift_path(gift), :class => "btn btn-primary", :method => :get
+            = link_to 'Destroy', gift, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"
+          - elsif gift.can_be_reserved_by?(current_user)
+            = link_to "Buy", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-primary"
+          - elsif gift.reserved_by?(current_user)
+            = link_to "Resign", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-danger"
       
