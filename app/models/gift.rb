@@ -8,7 +8,11 @@ class Gift < ActiveRecord::Base
   end
 
   def can_be_reserved_by?(user)
-    user.present? && list.user_id != user.id
+    user.present? && list.user_id != user.id && buyer_id != user.id
+  end
+
+  def reserved_by?(user)
+    user.present? && list.user_id != user.id && buyer_id == user.id
   end
 
 end

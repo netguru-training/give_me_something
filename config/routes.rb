@@ -10,7 +10,14 @@ Rails.application.routes.draw do
   get 'lists/:slug', to: 'lists#show'
 
   resources :lists
-  resources :gifts
+
+
+  resources :gifts do
+    member do
+      post 'toggle_buyer'
+    end
+  end
+
 
 
 end
