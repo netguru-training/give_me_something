@@ -2,6 +2,10 @@
   #{list.name}
 %br
 
+.input-group
+  %span.input-group-addon Make your friends buy your stuff. Spam with this link
+  %input.form-control{ value: list_path(list, only_path: false) }
+
 %table.table.table-hover
   %tr
     %th Name
