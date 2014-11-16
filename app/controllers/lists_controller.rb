@@ -22,7 +22,8 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
 
   def update
     self.list = List.find_by_slug(params.require(:slug))
-    if list.update create_list_params
+    list.update_attributes create_list_params
+    if list.save
       redirect_to list_path(list), notice: 'List was successfully updated.'
     else
       render action: :edit
@@ -57,7 +58,7 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
   end
 
   def create_list_params
-    params.require(:list).permit(:name, gifts_attributes: [:name, :description, :_destroy])
+    params.require(:list).permit(:name, gifts_attributes: [:name, :description, :_destroy, :id])
   end
 
 end
