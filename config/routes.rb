@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'lists/new', to: 'lists#new'
   get 'lists/:slug', to: 'lists#show'
+  get 'lists/:slug/edit', to: 'lists#edit'
 
   resources :lists
 
