@@ -6,12 +6,12 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand navbar-left' 
+      = link_to '', root_path, class: 'navbar-brand navbar-left glyphicon glyphicon-gift', style: 'font-size: 25px', title: 'Give me something'
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         -if user_signed_in?
           %li
-            = link_to "Your lists", lists_path         
+            = link_to "Your lists", lists_path
       %ul.nav.navbar-nav.navbar-right
         = render 'layouts/navigation_links'
 
