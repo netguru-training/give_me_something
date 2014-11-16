@@ -12,6 +12,7 @@
     %th Description
     %th Where to buy?
     %th Actions
+    %th
 
 
   - gifts.each do |gift|
@@ -39,6 +40,7 @@
             = link_to "Buy", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-primary"
           - elsif gift.reserved_by?(current_user)
             = link_to "Resign", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-danger"
+      %td
         - if gift.listed_by?(current_user)
           - if gift.bought?
             Bought by
