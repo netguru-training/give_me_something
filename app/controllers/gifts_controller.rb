@@ -24,6 +24,12 @@ class GiftsController < ApplicationController
     end
   end
 
+  def destroy
+    gift.destroy
+    redirect_to :back, notice: 'Product was successfully destroyed.'
+  end
+
+
   private
 
   def gift_params
