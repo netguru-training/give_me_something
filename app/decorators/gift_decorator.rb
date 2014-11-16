@@ -22,7 +22,7 @@ class GiftDecorator < Draper::Decorator
   end
 
   def google_url
-    "https://www.google.pl/#q=#{ name_escaped }+sklep"
+    "https://www.google.pl/#q=#{ name_escaped }+shop"
   end
 
   def name_escaped
