@@ -7,6 +7,10 @@ img {
   @extend .img-responsive;
   margin: 0 auto;
   }
+body {
+ background-color: #4C6472;
+
+}
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
@@ -35,7 +39,6 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -80,3 +83,8 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+.jumbotron {
+  margin-top: 45px;
+}
+
