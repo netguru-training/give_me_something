@@ -1,13 +1,27 @@
 %h1 Give me something!
-%br
+
 %h3
-  %p You've never got nice gifts for Christmas?
-  %p You never know what to buy for your spouse?
-  %p You got 3 irons as wedding presents?
-  %p You want nice stuff but have no cash?
+  %p
+    You've never got nice gifts for Christmas?
+    You never know what to buy for your spouse?
+    You got 3 irons as wedding presents?
+    You want nice stuff but have no cash?
 
   %h2 Our tool is for You! Share Your lists, ask others to share theirs!
   %i Let them finance Your dreams.
+
+%h3 We have
+%p
+  %strong=app_stat.users_count
+  users
+%p
+  %strong=app_stat.lists_count
+  created lists
+%p
+  %strong=app_stat.gifts_count
+  created gifts
+  ="(#{app_stat.bought_gifts_count}"
+  bought)
 
 
   %p{ style: 'margin-top: 50px;' }
