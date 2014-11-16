@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
-expose(:list, finder: :find_by_slug, finder_parameter: :slug)
+expose(:list, finder: :find_by_slug, finder_parameter: :slug, params: :list_params)
 
 expose(:lists)
 expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC")) }
@@ -15,24 +15,27 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
   end
 
   def new
+
   end
 
   def create
-    #puts list_params
-    #raise
-
-    list = Lists::AddGiftsFromForm.new(list_params, current_user).call
-    if list.present?
+    list.assign_attributes create_list_params
+    list.save
+    if list.persisted?
       redirect_to list_path(list), notice: 'List was successfully created.'
     else
-      render action: 'new', flash: { error: 'Invalid data provided. List not created.' }
+      render action: :new
     end
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name, gifts_attributes: [:name, :description])
+    params.permit(:list).permit(:name, gifts_attributes: [:name, :description, :_destroy])
+  end
+
+  def create_list_params
+    params.require(:list).permit(:name, gifts_attributes: [:name, :description, :_destroy])
   end
 
 end
