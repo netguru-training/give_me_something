@@ -1,13 +1,22 @@
 # Give Me Something!
+![alt tag](http://oi61.tinypic.com/10ok9wx.jpg)
+
 [![](http://img.shields.io/codeclimate/github/netguru-training/give_me_something.svg?style=flat-square)](https://codeclimate.com/github/netguru-training/give_me_something)
 [![](http://img.shields.io/codeclimate/coverage/github/netguru-training/give_me_something.svg?style=flat-square)](https://codeclimate.com/github/netguru-training/give_me_something)
 [![](http://img.shields.io/travis/netguru-training/give_me_something.svg?style=flat-square)](https://travis-ci.org/netguru-training/give_me_something/)
 
 ## General info
 
+You've never got nice gifts for Christmas? You never know what to buy for your spouse? You got 3 irons as wedding presents? You want nice stuff but have no cash?
+
+
+Our tool is for You! Share Your lists, ask others to share theirs!
+
+Let them finance Your dreams.
+
 ### Heroku
 
-App is available on heroku: https://give-me-something.herokuapp.com
+App is available on [heroku](https://give-me-smthing.herokuapp.com)
 
 ## Technologies
 
