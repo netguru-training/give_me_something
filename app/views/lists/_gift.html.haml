@@ -22,4 +22,4 @@
     - if gift.listed_by?(current_user)
       - if gift.bought?
         Bought by
-        = gift.buyer.name
+        = mail_to gift.buyer.email, gift.buyer.name
