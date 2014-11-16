@@ -9,6 +9,7 @@
 %table.table.table-hover
   %tr
     %th Name
+    %th Description
     %th Where to buy?
     %th Actions
 
@@ -18,6 +19,8 @@
       %td
         %span.glyphicon.glyphicon-gift
         = link_to "#{gift.name}", gift_path(gift), :method => :get
+      %td
+        = gift.description
       %td
         %a{ href: gift.allegro_url, target: '_blank', title: 'Search in allegro' }
           =image_tag('allegro.ico')
