@@ -28,5 +28,13 @@ class GiftDecorator < Draper::Decorator
   def name_escaped
     CGI.escape name.downcase
   end
+
+  def short_description
+    if description.size<50
+      return description
+    else
+      truncate(description, length: 49)
+    end
+  end
   
 end
