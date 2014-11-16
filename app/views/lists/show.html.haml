@@ -4,7 +4,7 @@
 
 .input-group
   %span.input-group-addon Make your friends buy your stuff. Spam with this link
-  %input.form-control{ value: list_path(list, only_path: false) }
+  %input.form-control.code{ value: list_path(list, only_path: false) }
 
 %table.table.table-hover
   %tr
@@ -20,7 +20,7 @@
         %span.glyphicon.glyphicon-gift{ style: 'margin-right: 5px' }
         = link_to "#{gift.name}", gift_path(gift), :method => :get
       %td
-        = gift.description
+        = link_to gift.short_description, gift_path(gift)
       %td
         %a.gift-search-icon{ href: gift.allegro_url, target: '_blank', title: 'Search in allegro' }
           =image_tag('allegro.ico')

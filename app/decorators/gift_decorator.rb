@@ -32,5 +32,13 @@ class GiftDecorator < Draper::Decorator
   def bought?
     buyer_id.present?
   end
+
+  def short_description
+    if description.size < 50
+      description
+    else
+      "#{description.truncate(49)}"
+    end
+  end
   
 end

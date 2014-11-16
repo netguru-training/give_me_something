@@ -1,6 +1,13 @@
-%h3 Welcome!!
+%h1 Welcome!!
 %br
+%h3
+  You've never got nice gifts for Christmas? You got 3 irons as wedding presents? You never know what to buy for your spouse? 
+  %br
+  %br
+  Our tool is for You! Share Your lists, ask others to share theirs!!
+  %br
+  %br
 -if user_signed_in?
-  %p= link_to 'Lists', lists_path, :class => "btn btn-primary btn-lg", :method => :get
+  %p= link_to 'Your Lists', lists_path, :class => "btn btn-primary btn-lg", :method => :get
 
 
