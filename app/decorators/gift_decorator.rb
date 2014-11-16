@@ -28,5 +28,9 @@ class GiftDecorator < Draper::Decorator
   def name_escaped
     CGI.escape name.downcase
   end
+
+  def bought?
+    buyer_id.present?
+  end
   
 end

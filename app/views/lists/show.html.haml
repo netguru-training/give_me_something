@@ -17,7 +17,7 @@
   - gifts.each do |gift|
     %tr{class: gift.css_available_class}
       %td
-        %span.glyphicon.glyphicon-gift
+        %span.glyphicon.glyphicon-gift{ style: 'margin-right: 5px' }
         = link_to "#{gift.name}", gift_path(gift), :method => :get
       %td
         = gift.description
@@ -39,6 +39,12 @@
             = link_to "Buy", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-primary"
           - elsif gift.reserved_by?(current_user)
             = link_to "Resign", toggle_buyer_gift_path(gift), :method => :post, :class => "btn btn-danger"
+        - if gift.listed_by?(current_user)
+          - if gift.bought?
+            Bought by
+            = gift.buyer.name
+
+
 
 =link_to "Edit Your List", edit_list_path(list), :class => "btn btn-primary btn-lg"
       
