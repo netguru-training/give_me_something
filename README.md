@@ -26,11 +26,18 @@ App is available on [heroku](https://give-me-smthing.herokuapp.com)
 
 ## Setup
 
-> TBD
+> cp config/database.yml.sample config/database.yml
 
-## Development
+> rake db:migrate
 
-> TBD
+> rake db:setup
+
+## Info
+You can sign in to app by
+
+> testuser@test.com / password
+
+> testuser2@test.com / password
 
 ## Tests
 
@@ -55,4 +62,10 @@ me and I’ll add a note to the README so that others can find your work.
 
 ## License
 
-> TBD
+MIT
+
+## Authors
+* Małgorzata Ksionek
+* Jakub Kubacki
+* Przemek Bieliński
+* Special props to Adam Nowak for mentoring
