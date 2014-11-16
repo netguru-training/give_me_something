@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
 
   root to: 'visitors#index'
   devise_for :users
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'lists/new', to: 'lists#new'
   get 'lists/:slug', to: 'lists#show'
 
-  resources :lists 
+  resources :lists
 
 
   resources :gifts do

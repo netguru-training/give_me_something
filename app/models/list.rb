@@ -6,7 +6,7 @@ class List < ActiveRecord::Base
   accepts_nested_attributes_for :gifts, :reject_if => :all_blank, :allow_destroy => true
 
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 8 }
   validates :user_id, presence: true
 
   after_initialize :ensure_slug
