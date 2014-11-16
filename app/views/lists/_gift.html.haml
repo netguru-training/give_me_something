@@ -5,14 +5,10 @@
   %td
     = link_to gift.short_description, gift_path(gift)
   %td
-    %a.gift-search-icon{ href: gift.allegro_url, target: '_blank', title: 'Search in allegro' }
-      =image_tag('allegro.ico')
-    %a.gift-search-icon{ href: gift.ebay_url, target: '_blank', title: 'Search in ebay' }
-      =image_tag 'ebay.ico'
-    %a.gift-search-icon{ href: gift.amazon_url, target: '_blank', title: 'Search in amazon' }
-      =image_tag 'amazon.gif'
-    %a.gift-search-icon{ href: gift.google_url, target: '_blank', title: 'Search in google' }
-      =image_tag 'google.png'
+    - gift.available_search_site.each do |site|
+      %a.gift-search-icon{ href: gift.search_site_url(site), target: '_blank', title: "'Search in #{site}" }
+        =image_tag("#{site}.ico", size: "18x18")
+    
   %td
     .btn-group{:role => "group"}
       - if gift.listed_by?(current_user)   
