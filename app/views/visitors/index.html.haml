@@ -1,13 +1,17 @@
-%h1 Welcome!!
+%h1 Give me something!
 %br
 %h3
-  You've never got nice gifts for Christmas? You got 3 irons as wedding presents? You never know what to buy for your spouse? 
-  %br
-  %br
-  Our tool is for You! Share Your lists, ask others to share theirs!!
-  %br
-  %br
--if user_signed_in?
-  %p= link_to 'Your Lists', lists_path, :class => "btn btn-primary btn-lg", :method => :get
+  %p You've never got nice gifts for Christmas?
+  %p You never know what to buy for your spouse?
+  %p You got 3 irons as wedding presents?
+  %p You want nice stuff but have no cash?
+
+  %h2 Our tool is for You! Share Your lists, ask others to share theirs!
+  %i Let them finance Your dreams.
+
+
+  %p{ style: 'margin-top: 50px;' }
+    -if user_signed_in?
+      %p= link_to 'Your Lists', lists_path, :class => "btn btn-primary btn-lg", :method => :get
 
 
