@@ -1,19 +1,17 @@
 class ListsController < ApplicationController
-before_action :authenticate_user!, except: [:show]
-expose(:list, finder: :find_by_slug, finder_parameter: :slug, params: :list_params)
-
-expose(:lists)
-expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC")) }
+  before_action :authenticate_user!, except: [:show]
+  before_action :find_list_by_slug, only: [:show, :edit, :update, :destroy]
+  expose(:list, finder: :find_by_slug, finder_parameter: :slug, params: :list_params)
+  expose(:lists)
+  expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC")) }
 
   def index
   end
 
   def show
-    self.list = List.find_by_slug(params.require(:slug))
   end
 
   def edit
-    self.list = List.find_by_slug(params.require(:slug))
   end
 
   def new
@@ -21,7 +19,6 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
   end
 
   def update
-    self.list = List.find_by_slug(params.require(:slug))
     list.update_attributes create_list_params
     if list.save
       redirect_to list_path(list), notice: 'List was successfully updated.'
@@ -42,7 +39,6 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
   end
 
   def destroy
-    self.list = List.find_by_slug(params.require(:slug))
     if list && list.destroy
       redirect_to lists_path, notice: 'List was successfully destroyed.'
     else
@@ -59,6 +55,10 @@ expose(:gifts) { GiftDecorator.decorate_collection(list.gifts.order("name ASC"))
 
   def create_list_params
     params.require(:list).permit(:name, gifts_attributes: [:name, :description, :_destroy, :id])
+  end
+
+  def find_list_by_slug
+    self.list = List.find_by_slug(params.require(:slug))
   end
 
 end
